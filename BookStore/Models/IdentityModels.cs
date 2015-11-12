@@ -1,8 +1,8 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace BookStore.Models
 {
@@ -12,7 +12,7 @@ namespace BookStore.Models
 
         public string FName { get; set; }
         public string LName { get; set; }
-
+        public string EmailAdress { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -22,10 +22,13 @@ namespace BookStore.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public ICollection<ApplicationUserRole> UserRoles { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<ApplicationRole> Roles { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false){
 
@@ -35,5 +38,7 @@ namespace BookStore.Models
         {
             return new ApplicationDbContext();
         }
+
+
     }
 }
