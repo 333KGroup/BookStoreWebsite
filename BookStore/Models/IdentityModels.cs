@@ -28,7 +28,7 @@ namespace BookStore.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<ApplicationRole> Roles { get; set; }
+        //public DbSet<ApplicationRole> Roles { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false){
 

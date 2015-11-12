@@ -19,8 +19,8 @@ namespace BookStore
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // Create the custom role and user.
-            RoleActions roleActions = new RoleActions();
-            roleActions.AddUserAndRole();
+           // RoleActions roleActions = new RoleActions();
+           // roleActions.AddUserAndRole();
         }
     }
 }
